@@ -1,0 +1,73 @@
+.modal__container{
+    background-color: #fff;
+    padding: 20px;
+    max-width: 700px;
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+.modal__imageBox {
+    width: 300px;
+}
+.modal__imageBox img{
+    width: 100%;
+}
+.modal__contentBox{
+    flex: 1;
+}
+.backdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(1px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+  .pass_reset{
+    text-align: center;
+  }
+  .pass_reset svg{
+    font-size: 40px;
+    margin: 0 0 10px;
+    color: rgb(64, 219, 64);
+    /* transition: 0.1s; */
+    animation: pop 0.5s ease;
+  }
+  @keyframes pop {
+    0%{
+        transform: scale(0.7);
+    }
+    90%{
+        transform: scale(1.3);
+    }
+    100%{
+        transform: scale(1);
+    }
+  }
+  .pass_reset button{
+    background-color: var(--primaryColor);
+    color: #fff;
+    padding: 12px 20px;
+    width: auto;
+    margin: 15px 0 0;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  .pass_reset button:hover{
+    background-color: var(--primaryDarkColor);
+  }
+  .modal_reset{
+    max-width: max-content;
+  }
+  

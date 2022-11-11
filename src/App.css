@@ -1,0 +1,35 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root{
+  --primaryColor: #207398;
+  --primaryLightColor: #23C4ED;
+  --primaryDarkColor: #03203C;
+  --lightGreyText: #acacac;
+  --grey: #e0e0e0
+}
+body{
+  background-color: #f0f0f0;
+}
+a{
+  display: inline-block;
+  text-decoration: none;
+}
+input:focus{
+  outline: none;
+}
+.backdrop{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  backdrop-filter: blur(1px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}

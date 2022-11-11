@@ -1,0 +1,23 @@
+.loader{
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+}
+.rotating{
+    width: 60px;
+    height: 60px;
+    border: solid 5px;
+    border-color: var(--primaryColor) transparent var(--primaryColor) transparent;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    animation: rotate 2s linear infinite;    
+}
+
+@keyframes rotate {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}

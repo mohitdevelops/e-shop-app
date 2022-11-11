@@ -1,0 +1,274 @@
+.wrapper{
+    max-width: 1200px;
+    width: 100%;
+    padding: 50px 15px;
+    margin: 0 auto;
+}
+input, button{
+    width: 100%;
+    margin: 5px 0 15px;
+    padding: 15px 15px;
+    border: none;
+    border-radius: 3px;
+    background-color: #eee;    
+}
+.cartWrap .cartItem{
+    width: 100%;
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    gap: 15px;
+    border-bottom: solid 1px #e4e2e2;
+}
+.cartWrap .cartItem .right_box ~ .info{
+    flex: 1;
+}
+.cartWrap .cartItem:last-child{
+    border: none;
+}
+.cartWrap .cartItem .right_box{
+    text-align: center;
+}
+.cartWrap .cartItem .right_box button{
+    display: inline-block;
+    margin: 5px;
+    width: 25px;
+    height: 25px;
+    padding: inherit;
+    border-radius: 50%;
+    line-height: 20px;
+    text-align: center;
+    background-color: var(--grey);
+    color: #000;
+    border: none;
+}
+.cartWrap .cartItem .right_box button:hover{
+    background-color: #eee;
+    color: #000;
+}
+.cartWrap .cartItem button{
+    background-color: #fff;
+    color: var(--lightGreyText);
+    border: solid 1px var(--lightGreyText);
+    padding: 5px 10px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: auto;
+    cursor: pointer;
+    margin: 0;
+}
+.cartWrap .cartItem button:hover{
+    background-color:#eaeaea;
+    border: solid 1px transparent;
+}
+
+.cartWrap .cartItem img{
+    width: 95px;
+    height: 95px;
+    object-fit: contain;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    border: solid 1px #e4e2e2;
+    display: block;
+    margin: 0 0 10px;
+}
+.cartWrap .cartItem h4 span{
+    color: var(--lightGreyText);
+    text-transform: uppercase;
+    /* margin-left: 15px; */
+    font-weight: 600;
+    font-size: 11px;
+    display: block;
+}
+.cartWrap .cartItem .info .top{
+    display: flex;
+    justify-content: space-between;
+}
+.cartWrap .cartItem .info .top h4{
+    font-size: 18px;
+    font-weight: 500;
+}
+.cartWrap .cartItem .info .bottom{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+.cartWrap .cartItem .info .bottom p{
+    font-size: 19px;
+    font-weight: 600;
+    color: #000;
+}
+.cartWrap .cartItem .info .bottom p.total__price span{
+    color: var(--lightGreyText);
+    font-size: 14px;
+    margin-right: 15px;
+    font-weight: 400;
+}
+.right__wrap{
+    border: solid 1px rgb(207, 207, 207);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 250px;
+}
+.right__wrap a{
+    background-color: var(--primaryDarkColor);
+    color: #fff;
+    margin-top: 15px;
+    text-decoration: none;
+    padding: 8px 10px;
+}
+
+.loginWrapper{
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.loginHeader ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+.loginHeader ul li{
+    text-align: center;
+    flex: 1;
+}
+.loginHeader ul li a{
+    width: 100%;
+    line-height: 1;
+    padding: 15px ;
+    color: var(--lightGreyText);
+    font-weight: 500;
+}
+.loginHeader ul li a.active{
+    background-color: #fff;
+    color: #000;
+    border-radius: 10px 10px 0 0;
+}
+
+.loginWrapper form{
+    padding: 20px;
+    background-color: #fff;
+    width: 100%;
+    color: #000;
+    border-radius: 0;
+}
+
+.loginWrapper form h4{
+    margin: 0 0 15px;
+    font-size: 20px;
+    color: #fff;
+}
+
+
+.loginWrapper form button{
+    margin: 10px 0 0;
+    background-color: var(--primaryColor);
+    color: #fff;
+    cursor: pointer;  
+    transition: 0.3s ease;  
+    font-weight: 600;
+}
+.loginWrapper form button:hover{
+    background-color: var(--primaryDarkColor);
+}
+
+.loginWrapper button.newUser{  
+    background-color: transparent;
+    padding: 0;
+    color: #fff;
+    width: auto;    
+    margin-bottom: 0;
+}
+.profileWrapper{
+    display: flex;
+    gap: 30px;
+}
+.left__infoBox{
+    flex: 2;    
+}
+.profileWrapper .left__infoBox button.sign_out_btn{
+    width: auto;
+    background-color: rgb(233, 56, 56);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin: 50px 0 0;
+}
+.profileWrapper .left__infoBox button.sign_out_btn:hover{
+    background-color: rgb(235, 102, 102);
+}
+.profileWrapper .left__infoBox h1{
+    margin: 0 0 20px;
+}
+.profileWrapper .left__infoBox h2{
+    margin: 0 0 20px;
+}
+.profileWrapper .left__infoBox p{
+    color: var(--lightGreyText);
+}
+.profileWrapper .right__passReset{
+    flex: 1;
+}
+.profileWrapper .right__passReset h2 {
+    margin: 0 0 25px;
+}
+.profileWrapper .right__passReset input{
+    border: solid 1px var(--lightGreyText);
+    background-color: #fff;
+    color: #000;
+}
+.profileWrapper .right__passReset input.invalid{
+    border: solid 1px rgb(235, 102, 102);
+}
+.profileWrapper .right__passReset button{
+    background-color: var(--primaryColor);
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border-radius: 3px;
+}
+.profileWrapper .right__passReset button:hover{
+    background-color: var(--primaryDarkColor);
+}
+.error_message{
+    text-align: center;
+    margin: 8px 0 0;
+}
+.error_message, .errMsg{
+    color: red;
+}
+.left__wrap{
+    border-radius: 10px;
+    overflow: hidden;
+}
+.left__wrap h2.cart__title{
+    background-color: #fff;
+    padding: 30px 20px;
+    border-radius: 10px;
+    font-weight: 400;
+}
+
+@media screen and (min-width:991px) {
+    .cartWrap{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 50px;
+    }
+    .left__wrap{
+        grid-column: 1/3;
+    }
+    .right__wrap{
+        grid-column: 3/4;    
+    }
+}
