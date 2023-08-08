@@ -15,7 +15,7 @@ main .container{
 }
 .product_item .product_image img{
     width: 100%;
-    height: 300px;
+    height: 200px;
     object-fit: contain;
     object-position: center;
     cursor: pointer;
@@ -52,6 +52,7 @@ main .container{
     cursor: pointer;  
     transition: 0.3s ease;  
     width: auto;
+    margin: 0;
 }
 .product_item .bottom button:hover{
     background-color: var(--primaryLightColor);
@@ -67,17 +68,38 @@ button.loadmore{
     background-color: var(--primaryLightColor);
     color: #fff;
     width: auto;
-    margin: 50px auto;
+    margin: 50px auto 0;
     cursor: pointer;
 }
 .loadmore__wrap{
     text-align: center;
+}
+.banner_wrap{
+    margin: 0 0 50px;
+}
+.banner_wrap img{
+    width: 100%;
+}
+.banner_wrap img.mobile_banner{
+    display: block;
+}
+.banner_wrap img.desktop_banner{
+    display: none;
 }
 
 
 @media screen and (min-width: 767px) {
     main .container{
         grid-template-columns: repeat(2, 1fr);
+    }
+    .banner_wrap img.mobile_banner{
+        display: none;
+    }
+    .banner_wrap img.desktop_banner{
+        display: block;
+    }
+    .product_item .product_image img{
+        height: 300px;
     }
 }
 

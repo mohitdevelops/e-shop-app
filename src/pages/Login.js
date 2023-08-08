@@ -2,7 +2,12 @@ import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import classes from "./pages.module.css";
 import LoginHeader from "./LoginHeader";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+	browserSessionPersistence,
+	setPersistence,
+	signInWithEmailAndPassword,
+} from "firebase/auth";
+
 import { auth } from "../firebase";
 
 export default function Login() {
@@ -17,9 +22,19 @@ export default function Login() {
 		const enteredEmailValue = emailInput.current.value;
 		const enteredPasswordValue = passwordInput.current.value;
 
-		signInWithEmailAndPassword(auth, enteredEmailValue, enteredPasswordValue)
-			.then(async (res) => {
-				navigate("/");				
+		setPersistence(auth, browserSessionPersistence)
+			.then(() => {
+				return signInWithEmailAndPassword(
+					auth,
+					enteredEmailValue,
+					enteredPasswordValue
+				)
+					.then(async () => {
+						navigate("/");
+					})
+					.catch((err) => {
+						setError(err.message);
+					});
 			})
 			.catch((err) => {
 				setError(err.message);
@@ -41,9 +56,7 @@ export default function Login() {
 				<div className={classes.form_group}>
 					<button type="submit">Login</button>
 				</div>
-				<div className={classes.error_message}>
-					{error}
-				</div>
+				<div className={classes.error_message}>{error}</div>
 			</form>
 		</div>
 	);

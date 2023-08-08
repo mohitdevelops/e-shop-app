@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import classes from "./product.module.css";
 import ProductItem from "./ProductItem";
+import banner from "../../assets/banner.jpg";
+import mobileBanner from "../../assets/mobile-banner.jpg";
 
 const ProductMainWrapper = () => {
 	const [products, setProducts] = useState([]);
@@ -55,10 +57,13 @@ const ProductMainWrapper = () => {
 			/>
 		);
 	});
-	
 
 	return (
 		<main>
+			<div className={classes.banner_wrap}>
+				<img src={mobileBanner} alt="eShop Banner" className={classes.mobile_banner} />
+				<img src={banner} alt="eShop Banner" className={classes.desktop_banner} />
+			</div>
 			{isLoading && <LoadingSpinner />}
 			<div className={classes.container}>{itemList}</div>
 			<div className={classes.loadmore__wrap}>

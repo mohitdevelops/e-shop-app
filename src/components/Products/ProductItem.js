@@ -6,18 +6,14 @@ import ProductInfoModal from "../Modal/ProductInfoModal";
 import classes from "./product.module.css";
 
 const ProductItem = (props) => {
-	const { name, image, category, price, id } = props;
+	const { name, image, category, price, id, description } = props;
 	const [isProductVisible, setIsProductVisible] = useState(false);
 	const dispatch = useDispatch();
+	const [productState, setProductState] = useState({ show: 0 });
 
 	const hideModalHandler = () => {
 		setIsProductVisible(false);
 	};
-
-	const productDetailsModal = ReactDOM.createPortal(
-		<ProductInfoModal modalHide={hideModalHandler} />,
-		document.getElementById("modal")
-	);
 
 	const addToCartHandler = () => {
 		dispatch(
@@ -26,9 +22,27 @@ const ProductItem = (props) => {
 				name,
 				price,
 				image,
-				category
+				category,
 			})
 		);
+	};
+
+	const productDetailsModal = ReactDOM.createPortal(
+		<ProductInfoModal modalHide={hideModalHandler} productData={props} />,
+		document.getElementById("modal")
+	);
+
+	const showProductModalHandler = () => {
+		if (productState.show === props.id) {
+			setIsProductVisible(true);
+		} else {
+			setIsProductVisible(false);
+		}
+		getProductModal(props.id);
+	};
+
+	const getProductModal = (value) => {
+		setProductState({ show: value });
 	};
 
 	return (
@@ -36,11 +50,7 @@ const ProductItem = (props) => {
 			{isProductVisible && productDetailsModal}
 			<div className={classes.product_item}>
 				<div className={classes.product_image}>
-					<img
-						src={image}
-						alt={name}
-						onClick={() => setIsProductVisible(true)}
-					/>
+					<img src={image} alt={name} onClick={showProductModalHandler} />
 					<h3>{name}</h3>
 					<p>{category}</p>
 					<div className={classes.bottom}>

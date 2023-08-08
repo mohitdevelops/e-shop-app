@@ -21,7 +21,9 @@ header a{
 header a.logo{
     color: #fff;
 }
-
+header a.logo h1{
+    font-size: 20px;
+}
 header .cart_btn{
     display: flex;
     align-items: center;
@@ -52,4 +54,27 @@ header ul.nav{
 }
 header ul.nav li a{
     color: #fff;
+}
+header ul.nav li a.mobile_user span.user_name{
+    display: none;
+}
+header ul.nav li a.mobile_user span.user_icon{
+    display: block;
+    font-size: 20px;
+}
+
+@media screen and (min-width:767px) {
+    
+    header ul.nav li a{
+        padding: 0;
+    }
+    header a.logo h1{
+        font-size: 30px;
+    }
+    header ul.nav li a.mobile_user span.user_icon{
+        display: none;
+    }
+    header ul.nav li a.mobile_user span.user_name{
+        display: block;
+    }
 }

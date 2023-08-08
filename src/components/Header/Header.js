@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { getAuth } from "firebase/auth";
-import css from "./header.module.css";
+import { FaUserCircle } from "react-icons/fa";
+import classes from "./header.module.css";
 import CartButton from "./CartButton";
 import { Link } from "react-router-dom";
 
@@ -12,19 +13,18 @@ const Header = () => {
 
 	useEffect(() => {
 		if (user) {
-			setLoggedUser(user.displayName);					
+			setLoggedUser(user.displayName);
 		}
 	}, [user]);
-
 
 	return (
 		<Fragment>
 			<header>
-				<div className={css.container}>
-					<Link to="/" className={css.logo}>
+				<div className={classes.container}>
+					<Link to="/" className={classes.logo}>
 						<h1>eShop</h1>
 					</Link>
-					<ul className={css.nav}>
+					<ul className={classes.nav}>
 						<li>
 							<Link to="/cart">
 								<CartButton />
@@ -32,10 +32,17 @@ const Header = () => {
 						</li>
 						<li>
 							{user ? (
-								<Link to="/profile">{loggedUser}</Link>
+								<Link to="/profile" className={classes.mobile_user}>
+									<span className={classes.user_name}>
+										Welcome, {loggedUser}
+									</span>
+									<span className={classes.user_icon}>
+										<FaUserCircle />
+									</span>
+								</Link>
 							) : (
 								<Link to="/login">Login</Link>
-							)}													
+							)}
 						</li>
 					</ul>
 				</div>
@@ -45,5 +52,3 @@ const Header = () => {
 };
 
 export default Header;
-
-

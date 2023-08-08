@@ -1,10 +1,33 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
+// Storing cart items to local storage 
+const items =
+	localStorage.getItem("cartList") !== null
+		? JSON.parse(localStorage.getItem("cartList"))
+		: [];
+const totalAmount =
+	localStorage.getItem("cartTotal") !== null
+		? JSON.parse(localStorage.getItem("cartTotal"))
+		: 0;
+const totalQuantity =
+	localStorage.getItem("cartQuantity") !== null
+		? JSON.parse(localStorage.getItem("cartQuantity"))
+		: 0;
+
+// Repeatable code to store items to localStorage 
+const setCartListFunc = (items, totalAmount, totalQuantity) => {
+	localStorage.setItem("cartList", JSON.stringify(items));
+	localStorage.setItem("cartTotal", JSON.stringify(totalAmount));
+	localStorage.setItem("cartQuantity", JSON.stringify(totalQuantity));
+};
+
 const productItemsSlice = createSlice({
 	name: "product",
 	initialState: {
-		items: [],
-		totalQuantity: 0,
+		items: items,
+		totalQuantity: totalQuantity,
+		totalAmount: totalAmount,
 	},
 	reducers: {
 		// Here action is an object which we add while dispatching this reducer
@@ -33,7 +56,18 @@ const productItemsSlice = createSlice({
 				existingItem.quantity = existingItem.quantity + 1;
 				existingItem.totalPrice = existingItem.totalPrice + newItem.price;
 			}
+			state.totalAmount = state.items.reduce(
+				(total, items) => total + Number(items.price) * Number(items.quantity),
+				0
+			);
+			// Setting cart Items to localStorage
+			setCartListFunc(
+				state.items.map((item) => item),
+				state.totalAmount,
+				state.totalQuantity
+			);
 		},
+
 		// this action will also helps us to identify item that should be removed
 		removeProduct(state, action) {
 			// The id of the item to remove
@@ -54,7 +88,18 @@ const productItemsSlice = createSlice({
 				existingItem.quantity = existingItem.quantity - 1;
 				existingItem.totalPrice = existingItem.totalPrice - existingItem.price;
 			}
-		}
+
+			state.totalAmount = state.items.reduce(
+				(total, items) => total + Number(items.price) * Number(items.quantity),
+				0
+			);
+			// Setting cart Items to localStorage
+			setCartListFunc(
+				state.items.map((item) => item),
+				state.totalAmount,
+				state.totalQuantity
+			);
+		},
 	},
 });
 

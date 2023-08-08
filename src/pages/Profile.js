@@ -56,7 +56,7 @@ export default function Profile() {
 				setIsPasswordResetted(true);
 			})
 			.catch((err) => {
-				console.log(err.message);
+				alert(err.message);
 			});
 	};
 

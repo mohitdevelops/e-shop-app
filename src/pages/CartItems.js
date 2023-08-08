@@ -29,30 +29,39 @@ export default function CartItems(props) {
 	};
 
 	return (
-		<div className={classes.cartItem}>
-			<div className={classes.right_box}>
-				<img src={image} alt={name} />
-				<button onClick={removeItem}>-</button>
-				<button onClick={addItem}>+</button>
-			</div>
-
-			<div className={classes.info}>
-				<div className={classes.top}>
+		<tr>
+			<td>
+				<div className={classes.image}>
+					<img src={image} alt={name} />
+				</div>
+			</td>
+			<td>
+				<div className={classes.title}>
 					<h4>
 						{name}
 						<span>{category}</span>
-					</h4>
+					</h4>			
 				</div>
-
-				<div className={classes.bottom}>
-					{/* <button onClick={deleteProduct}>
-						Remove <BsTrashFill />
-					</button> */}
-					<p className={classes.total__price}>
-						<span>Quantity {quantity} X</span>&#8377;{totalPrice}
+			</td>
+			<td>
+				<div className={classes.price}>
+					<span>${price}</span>
+				</div>
+			</td>
+			<td>
+				<div className={classes.quantity}>
+					<button onClick={removeItem}>-</button>
+					{quantity}
+					<button onClick={addItem}>+</button>
+				</div>
+			</td>
+			<td>
+				<div className={classes.price}>
+					<p className={classes.total__price}>						
+						${(Math.round(totalPrice * 100) / 100).toFixed(2)}
 					</p>
 				</div>
-			</div>
-		</div>
+			</td>
+		</tr>
 	);
 }
